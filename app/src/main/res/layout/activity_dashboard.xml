@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/grey_5"
+    android:background="@color/overlay_light_90"
     android:fitsSystemWindows="true"
     android:orientation="vertical">
 
@@ -16,9 +16,9 @@
             android:id="@+id/nested_scroll_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:scrollbars="none"
             android:clipToPadding="false"
             android:fillViewport="true"
+            android:scrollbars="none"
             android:scrollingCache="true">
 
             <LinearLayout
@@ -29,7 +29,7 @@
                 <com.google.android.material.appbar.AppBarLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@color/grey_5"
+                    android:background="@color/overlay_light_90"
                     app:elevation="0dp">
 
                     <androidx.appcompat.widget.Toolbar
@@ -63,14 +63,18 @@
 
     </RelativeLayout>
 
-    <com.google.android.material.tabs.TabLayout
-        android:id="@+id/tab_layout"
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/navigation"
+        app:elevation="8dp"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/spacing_xxlarge"
-        android:background="@color/light_blue_500"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-        app:tabIndicatorHeight="0dp"
-        app:tabMode="fixed"
-        app:theme="@style/Toolbar.Light" />
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="bottom"
+        android:background="@color/blue_grey_700"
+        app:itemIconTint="@color/color_state_white_2"
+        app:itemTextColor="@color/color_state_white_2"
+        app:menu="@menu/menu_bottom_navigation_shifting" />
+
 
 </LinearLayout>

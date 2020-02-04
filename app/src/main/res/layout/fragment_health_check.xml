@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    tools:context=".fragments.HealthCheckFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:padding="10dp"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/Health_check_imgView"
+            android:layout_centerHorizontal="true"
+            android:layout_width="150dp"
+            android:layout_marginTop="50dp"
+            android:layout_height="150dp"
+            android:src="@drawable/healthcheckimg">
+        </ImageView>
+
+        <TextView
+            android:id="@+id/HealthCheckTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp"
+            android:text="Welcome to Healthcheck"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:layout_below="@id/Health_check_imgView">
+        </TextView>
+
+        <TextView
+            android:id="@+id/HealthCheckDescription"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:textAlignment="center"
+            android:text="@string/health_check_description"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/HealthCheckTitle">
+
+        </TextView>
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/color_btn"
+            android:layout_width="300dp"
+            android:layout_below="@+id/HealthCheckDescription"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="100dp"
+            app:chipBackgroundColor="@color/red_600"
+            android:elevation="4dp"
+            android:text="Get Started"
+            android:textColor="@color/overlay_light_90"
+            android:textAlignment="center"
+            android:theme="@style/Theme.MaterialComponents.Light">
+
+        </com.google.android.material.chip.Chip>
+
+
+
+    </RelativeLayout>
+
+
+</LinearLayout>

@@ -1,8 +1,13 @@
 package project.hackathon;
 
 import android.graphics.PorterDuff;
+import android.util.Log;
 import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import androidx.appcompat.widget.Toolbar;
@@ -11,36 +16,37 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager.widget.ViewPager;
+import androidx.viewpager.widget.ViewPager.OnPageChangeListener;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayout.OnTabSelectedListener;
 import com.google.android.material.tabs.TabLayout.Tab;
 import project.hackathon.animations.DepthPageTransformer;
-import project.hackathon.fragments.BlankFragment1;
-import project.hackathon.fragments.BlankFragment2;
 import project.hackathon.fragments.BlankFragment3;
 import project.hackathon.fragments.BlankFragment4;
+import project.hackathon.fragments.HealthCheckFragment;
+import project.hackathon.fragments.SummaryFragment;
 
 public class DashboardActivity extends AppCompatActivity {
 
-    private TabLayout tab_layout;
-
+    private BottomNavigationView navigation;
+    private MenuItem prevMenuItem;
     private ViewPager mViewPager;
-
-    private static final int[] TAB_ICONS = {R.drawable.ic_equalizer, R.drawable.ic_credit_card,
-            R.drawable.ic_pie_chart_outline,R.drawable.ic_person};
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
 
+        getWindow().setStatusBarColor(getResources().getColor(R.color.overlay_light_90));
+        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+
         initToolbar();
         initComponent();
     }
 
     private void initComponent() {
-        tab_layout = findViewById(R.id.tab_layout);
+        navigation = findViewById(R.id.navigation);
         mViewPager = findViewById(R.id.main_viewpager);
 
         //SetUp view pager
@@ -54,51 +60,62 @@ public class DashboardActivity extends AppCompatActivity {
 
         }
 
-        if (tab_layout != null) {
-            tab_layout.setupWithViewPager(mViewPager);
-            addTabIcons();
-            setIconColors();
-            tab_layout.addOnTabSelectedListener(new OnTabSelectedListener() {
-                @Override
-                public void onTabSelected(final Tab tab) {
-                    int tabPos = tab.getPosition();
-                    tab.getIcon()
-                            .setColorFilter(getResources().getColor(R.color.light_blue_100), PorterDuff.Mode.SRC_IN);
-                    Toast.makeText(DashboardActivity.this, "position" + tabPos, Toast.LENGTH_SHORT).show();
+        navigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.navigation_movie:
+                        navigation.setBackgroundColor(getResources().getColor(R.color.blue_grey_700));
+                        mViewPager.setCurrentItem(0);
+                        return true;
+                    case R.id.navigation_music:
+                        navigation.setBackgroundColor(getResources().getColor(R.color.pink_800));
+                        mViewPager.setCurrentItem(1);
+                        return true;
+                    case R.id.navigation_books:
+                        navigation.setBackgroundColor(getResources().getColor(R.color.grey_700));
+                        mViewPager.setCurrentItem(2);
+                        return true;
+                    case R.id.navigation_newsstand:
+                        mViewPager.setCurrentItem(3);
+                        navigation.setBackgroundColor(getResources().getColor(R.color.teal_800));
+                        return true;
                 }
+                return false;
+            }
+        });
 
-                @Override
-                public void onTabUnselected(final Tab tab) {
-                    tab.getIcon()
-                            .setColorFilter(getResources().getColor(R.color.light_blue_700), PorterDuff.Mode.SRC_IN);
+        mViewPager.addOnPageChangeListener(new OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(final int position, final float positionOffset,
+                    final int positionOffsetPixels) {
 
+            }
+
+            @Override
+            public void onPageSelected(final int position) {
+                if (prevMenuItem != null) {
+                    prevMenuItem.setChecked(false);
                 }
-
-                @Override
-                public void onTabReselected(final Tab tab) {
-
+                else
+                {
+                    navigation.getMenu().getItem(0).setChecked(false);
                 }
-            });
-        }
+                Log.d("page", "onPageSelected: "+position);
+                navigation.getMenu().getItem(position).setChecked(true);
+                prevMenuItem = navigation.getMenu().getItem(position);
+
+
+
+            }
+
+            @Override
+            public void onPageScrollStateChanged(final int state) {
+
+            }
+        });
     }
 
-    private void setIconColors() {
-        // set icon color pre-selected
-        tab_layout.getTabAt(0).getIcon()
-                .setColorFilter(getResources().getColor(R.color.light_blue_100), PorterDuff.Mode.SRC_IN);
-        tab_layout.getTabAt(1).getIcon()
-                .setColorFilter(getResources().getColor(R.color.light_blue_700), PorterDuff.Mode.SRC_IN);
-        tab_layout.getTabAt(2).getIcon()
-                .setColorFilter(getResources().getColor(R.color.light_blue_700), PorterDuff.Mode.SRC_IN);
-        tab_layout.getTabAt(3).getIcon()
-                .setColorFilter(getResources().getColor(R.color.light_blue_700), PorterDuff.Mode.SRC_IN);
-    }
-
-    private void addTabIcons() {
-        for (int x = 0; x < 4; x++) {
-            tab_layout.getTabAt(x).setIcon(TAB_ICONS[x]);
-        }
-    }
 
     private void initToolbar() {
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -127,9 +144,9 @@ public class DashboardActivity extends AppCompatActivity {
         public Fragment getItem(final int position) { //fragment to be displayed
             switch (position) {
                 case 0:
-                    return new BlankFragment1();
+                    return new SummaryFragment();
                 case 1:
-                    return new BlankFragment2();
+                    return new HealthCheckFragment();
                 case 2:
                     return new BlankFragment3();
                 case 3:

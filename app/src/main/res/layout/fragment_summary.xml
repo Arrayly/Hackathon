@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    tools:context=".fragments.SummaryFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        
+        <com.app.progresviews.ProgressWheel
+            android:id="@+id/wheelprogress"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            app:barWidth="17dp"
+            android:layout_centerInParent="true"
+            app:marginBtwText= "15dp"
+            app:countText="931,199"
+            app:definitionText="Steps"
+            app:countTextColor="@android:color/black"
+            app:defTextColor="@android:color/black"
+            app:progressColor="#64b324"
+            app:defTextSize="10sp"
+            app:countTextSize="20sp"
+            app:percentage="90">
+
+        </com.app.progresviews.ProgressWheel>
+
+
+    </RelativeLayout>
+
+</LinearLayout>
