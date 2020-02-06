@@ -13,7 +13,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.app.progresviews.ProgressLine;
 import com.app.progresviews.ProgressWheel;
+import com.daimajia.androidanimations.library.Techniques;
+import com.daimajia.androidanimations.library.YoYo;
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.charts.Chart;
 import com.github.mikephil.charting.charts.LineChart;
@@ -40,6 +43,7 @@ import project.hackathon.R;
 public class SummaryFragment extends Fragment {
 
     ProgressWheel mProgressWheel;
+    ProgressLine lineSteps,LineCalories,lineActive;
     private LineChart chart;
     private FloatingActionButton fab;
 
@@ -57,6 +61,13 @@ public class SummaryFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_summary, container, false);
 
         mProgressWheel = view.findViewById(R.id.wheelprogress);
+
+        lineSteps = view.findViewById(R.id.progress_line_steps);
+        LineCalories = view.findViewById(R.id.progress_line_calories);
+        lineActive = view.findViewById(R.id.progress_line_acttiveMin);
+
+
+
         chart = view.findViewById(R.id.chart);
         fab = view.findViewById(R.id.summary_fab);
 
@@ -70,6 +81,36 @@ public class SummaryFragment extends Fragment {
     public void onActivityCreated(@Nullable final Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         mProgressWheel.setPercentage(220);
+
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                lineSteps.setmPercentage(85);
+            }
+        },500);
+
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                LineCalories.setmPercentage(70);
+            }
+        },700);
+
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                lineActive.setmPercentage(60);
+            }
+        },800);
+
+
+
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                YoYo.with(Techniques.Pulse).pivot(100,220).duration(1000).playOn(fab);
+            }
+        },100);
 
         chart.setViewPortOffsets(0, 0, 0, 0);
         chart.setBackgroundColor(getResources().getColor(R.color.blue_600));

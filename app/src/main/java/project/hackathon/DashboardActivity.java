@@ -4,17 +4,22 @@ import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.os.Handler;
 import android.util.Log;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import androidx.appcompat.widget.AppCompatButton;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
@@ -35,8 +40,11 @@ public class DashboardActivity extends AppCompatActivity {
     public static final int HEALTH_REQUEST_CODE = 5;
 
     private BottomNavigationView navigation;
+
     private MenuItem prevMenuItem;
+
     private ViewPager mViewPager;
+
     private KonfettiView mKonfettiView;
 
     @Override
@@ -44,20 +52,51 @@ public class DashboardActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
 
-        getWindow().setStatusBarColor(getResources().getColor(R.color.overlay_light_90));
+        getWindow().setStatusBarColor(getResources().getColor(R.color.collapse_toolbar_contracted));
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
 
-        final ImageView imageView = findViewById(R.id.img_settings);
-
-        imageView.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(final View v) {
-                startActivity(new Intent(DashboardActivity.this, SettingsActivity.class));
-            }
-        });
-
+        initToolbar();
         initComponent();
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                showInfoDialog();
+            }
+        },5000);
+
     }
+
+    private void showInfoDialog() {
+            final Dialog dialog = new Dialog(this);
+            dialog.requestWindowFeature(Window.FEATURE_NO_TITLE); // before
+            dialog.setContentView(R.layout.dialog_info);
+            dialog.setCancelable(true);
+
+            WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+            lp.copyFrom(dialog.getWindow().getAttributes());
+            lp.width = WindowManager.LayoutParams.WRAP_CONTENT;
+            lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
+
+
+            dialog.findViewById(R.id.bt_close).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    dialog.dismiss();
+                }
+            });
+
+            dialog.show();
+            dialog.getWindow().setAttributes(lp);
+
+    }
+
+    private void initToolbar() {
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle(null);
+    }
+
+
 
     private void initComponent() {
         navigation = findViewById(R.id.navigation);
@@ -80,20 +119,20 @@ public class DashboardActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.navigation_movie:
-                        navigation.setBackgroundColor(getResources().getColor(R.color.green_400));
+//                        navigation.setBackgroundColor(getResources().getColor(R.color.green_400));
                         mViewPager.setCurrentItem(0);
                         return true;
                     case R.id.navigation_music:
-                        navigation.setBackgroundColor(getResources().getColor(R.color.pink_800));
+//                        navigation.setBackgroundColor(getResources().getColor(R.color.pink_800));
                         mViewPager.setCurrentItem(1);
                         return true;
                     case R.id.navigation_books:
-                        navigation.setBackgroundColor(getResources().getColor(R.color.blue_500));
+//                        navigation.setBackgroundColor(getResources().getColor(R.color.blue_500));
                         mViewPager.setCurrentItem(2);
                         return true;
                     case R.id.navigation_newsstand:
                         mViewPager.setCurrentItem(3);
-                        navigation.setBackgroundColor(getResources().getColor(R.color.teal_800));
+//                        navigation.setBackgroundColor(getResources().getColor(R.color.teal_800));
                         return true;
                 }
                 return false;
@@ -111,15 +150,12 @@ public class DashboardActivity extends AppCompatActivity {
             public void onPageSelected(final int position) {
                 if (prevMenuItem != null) {
                     prevMenuItem.setChecked(false);
-                }
-                else
-                {
+                } else {
                     navigation.getMenu().getItem(0).setChecked(false);
                 }
-                Log.d("page", "onPageSelected: "+position);
+                Log.d("page", "onPageSelected: " + position);
                 navigation.getMenu().getItem(position).setChecked(true);
                 prevMenuItem = navigation.getMenu().getItem(position);
-
 
 
             }
@@ -130,7 +166,6 @@ public class DashboardActivity extends AppCompatActivity {
             }
         });
     }
-
 
 
     //State pager adapter for fragments
@@ -166,8 +201,8 @@ public class DashboardActivity extends AppCompatActivity {
     protected void onActivityResult(final int requestCode, final int resultCode, @Nullable final Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if (resultCode == RESULT_OK){
-            if (requestCode == HEALTH_REQUEST_CODE){
+        if (resultCode == RESULT_OK) {
+            if (requestCode == HEALTH_REQUEST_CODE) {
                 Toast.makeText(this, "Awesome!", Toast.LENGTH_SHORT).show();
                 showDialogCongrat();
                 showKonfetti();
@@ -199,7 +234,7 @@ public class DashboardActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 dialog.dismiss();
-                if (mViewPager != null){
+                if (mViewPager != null) {
                     mViewPager.setCurrentItem(0);
                 }
             }
@@ -207,6 +242,17 @@ public class DashboardActivity extends AppCompatActivity {
         dialog.show();
     }
 
-    public void setViewPagerPos(int pos){
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_basic, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == R.id.action_settings) {
+            startActivity(new Intent(DashboardActivity.this,SettingsActivity.class));
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
