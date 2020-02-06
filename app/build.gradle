@@ -29,9 +29,24 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     implementation 'com.google.android.material:material:1.0.0'
 
+    //Lottie PRVIOUS 2.8.0
+    implementation 'com.airbnb.android:lottie:3.0.0'
+
     //Progress bar
     implementation 'com.zekapp.library:progreswheelview:1.1.5'
 
     // third party dependencies -------------------------------------------------------------------
     implementation 'com.balysv:material-ripple:1.0.2'                  // ripple effect
+    implementation 'com.mikhaellopez:circularimageview:3.2.0'          // circle image view
+
+    //Animations
+    implementation 'com.daimajia.easing:library:2.0@aar'
+    implementation 'com.daimajia.androidanimations:library:2.3@aar'
+
+
+    //Line graphs
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.0.3'
+
+    //konfetti
+    implementation 'nl.dionsegijn:konfetti:1.1.3'
 }

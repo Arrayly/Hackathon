@@ -18,7 +18,7 @@
             android:layout_width="150dp"
             android:layout_marginTop="50dp"
             android:layout_height="150dp"
-            android:src="@drawable/healthcheckimg">
+            android:src="@drawable/analyze">
         </ImageView>
 
         <TextView
@@ -47,7 +47,7 @@
         </TextView>
 
         <com.google.android.material.chip.Chip
-            android:id="@+id/color_btn"
+            android:id="@+id/health_check_btn"
             android:layout_width="300dp"
             android:layout_below="@+id/HealthCheckDescription"
             android:layout_height="wrap_content"

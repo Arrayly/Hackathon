@@ -1,4 +1,4 @@
-package project.hackathon.fragments;
+package project.hackathon.stepper;
 
 
 import android.os.Bundle;
@@ -12,10 +12,10 @@ import project.hackathon.R;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class BlankFragment3 extends Fragment {
+public class StepperFragment3 extends Fragment {
 
 
-    public BlankFragment3() {
+    public StepperFragment3() {
         // Required empty public constructor
     }
 
@@ -24,7 +24,7 @@ public class BlankFragment3 extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_blank_fragment3, container, false);
+        return inflater.inflate(R.layout.fragment_stepper_fragment3, container, false);
     }
 
 }

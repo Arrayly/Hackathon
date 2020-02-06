@@ -3,22 +3,22 @@
 
     <item
         android:id="@+id/navigation_movie"
-        android:icon="@drawable/ic_add"
-        android:title="Movie &amp; TV" />
+        android:icon="@drawable/home_icon"
+        android:title="Home" />
 
     <item
         android:id="@+id/navigation_music"
-        android:icon="@drawable/ic_arrow_downward"
-        android:title="Music" />
+        android:icon="@drawable/heart"
+        android:title="Healthcheck" />
 
     <item
         android:id="@+id/navigation_books"
-        android:icon="@drawable/ic_launcher_foreground"
-        android:title="Books" />
+        android:icon="@drawable/ic_show_chart_black_24dp"
+        android:title="Improve" />
 
     <item
         android:id="@+id/navigation_newsstand"
-        android:icon="@drawable/ic_credit_card"
-        android:title="Newsstand" />
+        android:icon="@drawable/ic_person_outline_black_24dp"
+        android:title="Account" />
 
 </menu>

@@ -3,6 +3,13 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="medium_lorem_ipsum">Quisque imperdiet nunc at massa dictum volutpat. Etiam id orci ipsum. Integer id ex dignissim</string>
 
     <string name="health_check_description"> Understand the state of your health now - and in the future - to help you make the right choices about your lifestyle.</string>
+    <string name="Improve_score_description"> Improve your current health score now - and help to reduce the risk of developing dementia.</string>
+    <string name="eating_habits">Eating habits</string>
+
+    <string name="health_check_beginning">In order for use to help you understand your current health state, please take time to answer all the questions as accurately as possible</string>
+    <string name="eat_healthy_course">A step by step guide to eating clean.</string>
+    <string name="mindfulnesscourse">Learn mindfulness techniques to reduce stress and improve your wellbeing and work/study performance.</string>
 </resources>

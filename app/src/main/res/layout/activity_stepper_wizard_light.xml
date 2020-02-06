@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:animateLayoutChanges="true"
+    android:fitsSystemWindows="false"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/relative_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="500dp">
+
+            <androidx.viewpager.widget.ViewPager
+                android:id="@+id/view_pager"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/white" />
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/layoutDots"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="500dp"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:background="@android:color/white"
+            android:orientation="horizontal" />
+
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/btn_next"
+            android:layout_width="300dp"
+            android:layout_height="35dp"
+            android:layout_marginTop="10dp"
+            android:elevation="4dp"
+            android:layout_centerHorizontal="true"
+            android:text="N e x t"
+            android:layout_below="@id/layoutDots"
+            android:textSize="15sp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="10dp"
+            android:textAlignment="center"
+            android:textColor="@color/overlay_light_90"
+            android:theme="@style/Theme.MaterialComponents.Light"
+            app:chipBackgroundColor="@color/HelthCheckColor">
+
+        </com.google.android.material.chip.Chip>
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/analyzing_textVIew"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="A n a l y s i n g  D a t a..."
+        android:textColor="@color/blue_700"
+        android:textStyle="bold"
+        android:visibility="gone"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp">
+    </TextView>
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/lottie_anim"
+        android:layout_width="400dp"
+        android:layout_height="400dp"
+        android:layout_centerInParent="true"
+        android:elevation="4dp"
+        android:visibility="gone"
+        app:lottie_autoPlay="true"
+        app:lottie_fileName="analyzing_animation.json"
+        app:lottie_loop="true" />
+
+</RelativeLayout>

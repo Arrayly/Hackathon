@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".stepper.StepperFragment1">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="15dp">
+
+        <TextView
+            android:id="@+id/textview1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="Activity Levels"
+            android:textColor="@android:color/holo_blue_light"
+            android:textSize="20sp"
+            android:textStyle="bold"></TextView>
+
+        <ImageView
+            android:id="@+id/imgview1"
+            android:layout_width="30dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:layout_below="@id/textview1"
+            android:layout_height="30dp"
+            android:src="@drawable/stepper_tennis">
+
+        </ImageView>
+
+        <TextView
+            android:id="@+id/textview123"
+            android:layout_below="@id/imgview1"
+            android:layout_marginTop="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="How much activity have you engaged in today?">
+        </TextView>
+
+        <androidx.appcompat.widget.AppCompatCheckBox
+            android:id="@+id/radio1"
+            android:layout_width="wrap_content"
+            android:text="Very little"
+            android:layout_below="@+id/textview123"
+            android:layout_marginTop="10dp"
+            android:layout_height="wrap_content"></androidx.appcompat.widget.AppCompatCheckBox>
+        <androidx.appcompat.widget.AppCompatCheckBox
+            android:id="@+id/radio2"
+            android:text="Moderate"
+            android:layout_width="wrap_content"
+            android:layout_below="@+id/radio1"
+            android:layout_marginTop="10dp"
+            android:layout_height="wrap_content"></androidx.appcompat.widget.AppCompatCheckBox>
+
+        <androidx.appcompat.widget.AppCompatCheckBox
+            android:id="@+id/radio3"
+            android:layout_width="wrap_content"
+            android:text="Alot"
+            android:layout_below="@+id/radio2"
+            android:layout_marginTop="10dp"
+            android:layout_height="wrap_content"></androidx.appcompat.widget.AppCompatCheckBox>
+
+
+
+
+    </RelativeLayout>
+
+
+</LinearLayout>

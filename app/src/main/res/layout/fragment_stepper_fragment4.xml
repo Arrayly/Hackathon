@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".stepper.StepperFragment1">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="15dp">
+
+        <TextView
+            android:id="@+id/textview1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="Hey there!"
+            android:textColor="@android:color/holo_blue_light"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/lottie_anim_2"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:layout_marginTop="2dp"
+            android:layout_below="@+id/textview1"
+            android:layout_centerHorizontal="true"
+            android:elevation="4dp"
+            android:visibility="visible"
+            app:lottie_autoPlay="true"
+            app:lottie_fileName="doctorsmovingaround.json"
+            app:lottie_loop="true" />
+
+
+        <TextView
+            android:id="@+id/textview1321312"
+            android:layout_width="wrap_content"
+            android:gravity="center"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/lottie_anim_2"
+            android:layout_marginTop="40dp"
+            android:layout_centerHorizontal="true"
+            android:text="@string/health_check_beginning"
+            android:textSize="15sp" />
+
+    </RelativeLayout>
+</LinearLayout>

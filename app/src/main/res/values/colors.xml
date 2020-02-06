@@ -6,6 +6,9 @@
     <color name="colorAccentDark">#F50057</color>
     <color name="colorAccentLight">#FF80AB</color>
 
+
+    <color name="HelthCheckColor">#511D78</color>
+
     <color name="overlay_dark_10">#1A000000</color>
     <color name="overlay_dark_20">#33000000</color>
     <color name="overlay_dark_30">#4D000000</color>
@@ -54,6 +57,10 @@
     <color name="red_A200">#FF5252</color>
     <color name="red_A400">#FF1744</color>
     <color name="red_A700">#D50000</color>
+
+
+    <color name="collapse_toolbar">#B4D6BD</color>
+    <color name="collapse_toolbar_contracted">#24A9B8</color>
 
     <color name="deep_purple_50">#EDE7F6</color>
     <color name="deep_purple_100">#D1C4E9</color>

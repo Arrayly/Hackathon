@@ -1,37 +1,43 @@
 package project.hackathon;
 
-import android.graphics.PorterDuff;
+import android.app.Dialog;
+import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.util.Log;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.TextView;
+import android.view.View.OnClickListener;
+import android.view.Window;
+import android.widget.ImageView;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import androidx.appcompat.widget.Toolbar;
-import androidx.core.widget.NestedScrollView;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 import androidx.viewpager.widget.ViewPager.OnPageChangeListener;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.tabs.TabLayout;
-import com.google.android.material.tabs.TabLayout.OnTabSelectedListener;
-import com.google.android.material.tabs.TabLayout.Tab;
+import nl.dionsegijn.konfetti.KonfettiView;
+import nl.dionsegijn.konfetti.models.Shape;
+import nl.dionsegijn.konfetti.models.Size;
 import project.hackathon.animations.DepthPageTransformer;
-import project.hackathon.fragments.BlankFragment3;
-import project.hackathon.fragments.BlankFragment4;
+import project.hackathon.fragments.ImproveFragment;
+import project.hackathon.fragments.ProfileFragment;
 import project.hackathon.fragments.HealthCheckFragment;
 import project.hackathon.fragments.SummaryFragment;
 
 public class DashboardActivity extends AppCompatActivity {
 
+    public static final int HEALTH_REQUEST_CODE = 5;
+
     private BottomNavigationView navigation;
     private MenuItem prevMenuItem;
     private ViewPager mViewPager;
+    private KonfettiView mKonfettiView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,13 +47,22 @@ public class DashboardActivity extends AppCompatActivity {
         getWindow().setStatusBarColor(getResources().getColor(R.color.overlay_light_90));
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
 
-        initToolbar();
+        final ImageView imageView = findViewById(R.id.img_settings);
+
+        imageView.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(final View v) {
+                startActivity(new Intent(DashboardActivity.this, SettingsActivity.class));
+            }
+        });
+
         initComponent();
     }
 
     private void initComponent() {
         navigation = findViewById(R.id.navigation);
         mViewPager = findViewById(R.id.main_viewpager);
+        mKonfettiView = findViewById(R.id.viewKonfetti);
 
         //SetUp view pager
         //Connect state pager to view with special state pager adapter
@@ -65,7 +80,7 @@ public class DashboardActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.navigation_movie:
-                        navigation.setBackgroundColor(getResources().getColor(R.color.blue_grey_700));
+                        navigation.setBackgroundColor(getResources().getColor(R.color.green_400));
                         mViewPager.setCurrentItem(0);
                         return true;
                     case R.id.navigation_music:
@@ -73,7 +88,7 @@ public class DashboardActivity extends AppCompatActivity {
                         mViewPager.setCurrentItem(1);
                         return true;
                     case R.id.navigation_books:
-                        navigation.setBackgroundColor(getResources().getColor(R.color.grey_700));
+                        navigation.setBackgroundColor(getResources().getColor(R.color.blue_500));
                         mViewPager.setCurrentItem(2);
                         return true;
                     case R.id.navigation_newsstand:
@@ -117,16 +132,6 @@ public class DashboardActivity extends AppCompatActivity {
     }
 
 
-    private void initToolbar() {
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        toolbar.setNavigationIcon(R.drawable.ic_menu);
-        toolbar.getNavigationIcon()
-                .setColorFilter(getResources().getColor(R.color.light_blue_500), PorterDuff.Mode.SRC_ATOP);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle(null);
-    }
-
 
     //State pager adapter for fragments
     private class SectionsPagerAdapter extends FragmentStatePagerAdapter {
@@ -148,13 +153,60 @@ public class DashboardActivity extends AppCompatActivity {
                 case 1:
                     return new HealthCheckFragment();
                 case 2:
-                    return new BlankFragment3();
+                    return new ImproveFragment();
                 case 3:
-                    return new BlankFragment4();
+                    return new ProfileFragment();
             }
             return null;
         }
 
     }
 
+    @Override
+    protected void onActivityResult(final int requestCode, final int resultCode, @Nullable final Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (resultCode == RESULT_OK){
+            if (requestCode == HEALTH_REQUEST_CODE){
+                Toast.makeText(this, "Awesome!", Toast.LENGTH_SHORT).show();
+                showDialogCongrat();
+                showKonfetti();
+
+            }
+        }
+    }
+
+    private void showKonfetti() {
+        mKonfettiView.build()
+                .addColors(Color.YELLOW, Color.GREEN, Color.MAGENTA)
+                .setDirection(0.0, 359.0)
+                .setSpeed(1f, 5f)
+                .setFadeOutEnabled(true)
+                .setTimeToLive(2000L)
+                .addShapes(Shape.RECT, Shape.CIRCLE)
+                .addSizes(new Size(12, 5))
+                .setPosition(-50f, mKonfettiView.getWidth() + 50f, -50f, -50f)
+                .streamFor(300, 5000L);
+    }
+
+    private void showDialogCongrat() {
+        final Dialog dialog = new Dialog(this);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE); // before
+        dialog.setContentView(R.layout.dialog_achievement_congrat);
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
+        dialog.setCancelable(true);
+        dialog.findViewById(R.id.bt_action).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+                if (mViewPager != null){
+                    mViewPager.setCurrentItem(0);
+                }
+            }
+        });
+        dialog.show();
+    }
+
+    public void setViewPagerPos(int pos){
+    }
 }
