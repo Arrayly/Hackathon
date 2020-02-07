@@ -12,4 +12,20 @@
     <string name="health_check_beginning">In order for use to help you understand your current health state, please take time to answer all the questions as accurately as possible</string>
     <string name="eat_healthy_course">A step by step guide to eating clean.</string>
     <string name="mindfulnesscourse">Learn mindfulness techniques to reduce stress and improve your wellbeing and work/study performance.</string>
+    <string name="exercise_course">Complete daily exercise challenges to create a better you!</string>
+    <string name="score1">1. In terms of fruit and vegetables, how many portions a day do you consume on average?</string>
+    <string name="reerrwegsf">2. Lets think of whole grains (oatmeal, rice, brown bread), how often do you choose these over refined grains (white bread)?</string>
+    <string name="protein">4. How many portions of lean protein (chicken/fish/beans) do you consume per week?</string>
+    <string name="redmeat">3. How many portions of red meat do you consume a week?</string>
+    <string name="saltinfood">5. Do you usually add salt to your food?</string>
+    <string name="cigsperday">How many cigarettes do you smoke a day?</string>
+    <string name="tried_to_quit">Have you ever tried to quit?</string>
+    <string name="wouldyouquit">Would you like to quit?</string>
+    <string name="drink">1. Do you drink alcohol?</string>
+    <string name="drinkpermonth">2. How often do you drink per month?</string>
+    <string name="approached">4. Has anyone ever approached you in terms of your drinking and suggested you to stop or cut back?</string>
+    <string name="drink_phys_injury">5. Has your drinking ever caused you or someone else a physical injury?</string>
+    <string name="news_damentia">Digital storytelling on stories that shape you - video documentaries and in-depth features on Dementia, latest research, science.</string>
+    <string name="recommendation">Based on your previous healthcheck we recommend that you take the 10 day exercise challenge.</string>
+    <string name="level_21">Level 21</string>
 </resources>

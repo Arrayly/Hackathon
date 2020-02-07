@@ -3,6 +3,7 @@ package project.hackathon;
 import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Handler;
 import android.util.Log;
@@ -20,12 +21,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import androidx.appcompat.widget.AppCompatButton;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.content.res.ResourcesCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 import androidx.viewpager.widget.ViewPager.OnPageChangeListener;
+import com.google.android.material.appbar.CollapsingToolbarLayout;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.rhexgomez.typer.roboto.TyperRoboto;
 import nl.dionsegijn.konfetti.KonfettiView;
 import nl.dionsegijn.konfetti.models.Shape;
 import nl.dionsegijn.konfetti.models.Size;
@@ -41,6 +45,8 @@ public class DashboardActivity extends AppCompatActivity {
 
     private BottomNavigationView navigation;
 
+    private CollapsingToolbarLayout mCollapsingToolbarLayout;
+
     private MenuItem prevMenuItem;
 
     private ViewPager mViewPager;
@@ -51,6 +57,15 @@ public class DashboardActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
+
+        mCollapsingToolbarLayout = findViewById(R.id.collapsing_toolbar);
+
+        Typeface typeface = ResourcesCompat.getFont(this, R.font.baloo_paaji);
+
+        mCollapsingToolbarLayout.setCollapsedTitleTypeface(typeface);
+        mCollapsingToolbarLayout.setExpandedTitleTypeface(typeface);
+//        mCollapsingToolbarLayout.setContentScrim(null);
+        mCollapsingToolbarLayout.setStatusBarScrim(null);
 
         getWindow().setStatusBarColor(getResources().getColor(R.color.collapse_toolbar_contracted));
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);

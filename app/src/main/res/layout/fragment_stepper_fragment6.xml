@@ -4,16 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".stepper.StepperFragment1">
+    tools:context=".stepper.StepperFragment3">
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:scrollbars="vertical"
+        android:layout_height="match_parent"
         android:fadeScrollbars="true"
         android:fadingEdge="vertical"
-        android:requiresFadingEdge="vertical"
         android:fadingEdgeLength="30dp"
-        android:layout_height="match_parent">
+        android:requiresFadingEdge="vertical"
+        android:scrollbars="vertical">
 
 
         <RelativeLayout
@@ -26,7 +26,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
-                android:text="Activity Levels"
+                android:text="Alcohol"
                 android:textColor="@android:color/holo_blue_light"
                 android:textSize="20sp"
                 android:textStyle="bold"></TextView>
@@ -38,7 +38,7 @@
                 android:layout_below="@id/textview1"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="10dp"
-                android:src="@drawable/stepper_tennis">
+                android:src="@drawable/wine">
 
             </ImageView>
 
@@ -63,7 +63,7 @@
                         android:id="@+id/textview123"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="1. How much moderate excercise do you do per week?"></TextView>
+                        android:text="@string/drink"></TextView>
 
 
                     <androidx.appcompat.widget.AppCompatCheckBox
@@ -72,7 +72,7 @@
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/textview123"
                         android:layout_marginTop="8dp"
-                        android:text="None" />
+                        android:text="Yes" />
 
                     <androidx.appcompat.widget.AppCompatCheckBox
                         android:id="@+id/radio2"
@@ -80,25 +80,7 @@
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/radio1"
                         android:layout_marginTop="8dp"
-                        android:text="Less than one hour" />
-
-                    <androidx.appcompat.widget.AppCompatCheckBox
-                        android:id="@+id/radio3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/radio2"
-                        android:layout_marginTop="8dp"
-                        android:text="I don't exercise for medical reasons" />
-
-
-                    <androidx.appcompat.widget.AppCompatCheckBox
-                        android:id="@+id/radio4"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/radio3"
-                        android:layout_marginTop="8dp"
-                        android:text="Over 3 hours" />
-
+                        android:text="No" />
 
                 </RelativeLayout>
 
@@ -126,7 +108,7 @@
                         android:id="@+id/textview1235"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="2. Do you play regular sports (e.g football/yoga/gym)"></TextView>
+                        android:text="@string/drinkpermonth"></TextView>
 
 
                     <androidx.appcompat.widget.AppCompatCheckBox
@@ -135,7 +117,7 @@
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/textview1235"
                         android:layout_marginTop="8dp"
-                        android:text="Yes" />
+                        android:text="Less than monthly" />
 
                     <androidx.appcompat.widget.AppCompatCheckBox
                         android:id="@+id/radio6"
@@ -143,16 +125,34 @@
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/radio5"
                         android:layout_marginTop="8dp"
-                        android:text="No" />
+                        android:text="Every fortnight" />
+
+
+                    <androidx.appcompat.widget.AppCompatCheckBox
+                        android:id="@+id/radio16"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/radio6"
+                        android:layout_marginTop="8dp"
+                        android:text="Every week" />
+
+
+                    <androidx.appcompat.widget.AppCompatCheckBox
+                        android:id="@+id/radio1632"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/radio16"
+                        android:layout_marginTop="8dp"
+                        android:text="A few times a week" />
 
 
                     <TextView
                         android:id="@+id/textviree3r32"
                         android:layout_width="match_parent"
-                        android:layout_below="@+id/radio6"
-                        android:layout_marginTop="20dp"
                         android:layout_height="wrap_content"
-                        android:text="3. Do you do weight exercise/resistant training?"></TextView>
+                        android:layout_below="@+id/radio1632"
+                        android:layout_marginTop="20dp"
+                        android:text="3. Have you ever missed an event or work as a result of drink?"></TextView>
 
                     <androidx.appcompat.widget.AppCompatCheckBox
                         android:id="@+id/radio7"
@@ -178,13 +178,82 @@
             </com.google.android.material.card.MaterialCardView>
 
 
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/card2"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="15dp"
+                app:cardCornerRadius="4dp"
+                app:cardElevation="4dp"
+                app:cardUseCompatPadding="true">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="20dp">
+
+                    <TextView
+                        android:id="@+id/textview12356"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/approached"></TextView>
+
+
+                    <androidx.appcompat.widget.AppCompatCheckBox
+                        android:id="@+id/radi5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/textview12356"
+                        android:layout_marginTop="8dp"
+                        android:text="Yes" />
+
+                    <androidx.appcompat.widget.AppCompatCheckBox
+                        android:id="@+id/radi6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/radi5"
+                        android:layout_marginTop="8dp"
+                        android:text="No" />
+
+
+
+                    <TextView
+                        android:id="@+id/textvire32"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/radi6"
+                        android:layout_marginTop="20dp"
+                        android:text="@string/drink_phys_injury"></TextView>
+
+                    <androidx.appcompat.widget.AppCompatCheckBox
+                        android:id="@+id/radi7"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/textvire32"
+                        android:layout_marginTop="8dp"
+                        android:text="Yes" />
+
+
+                    <androidx.appcompat.widget.AppCompatCheckBox
+                        android:id="@+id/radi8"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/radi7"
+                        android:layout_marginTop="8dp"
+                        android:text="No" />
+
+                </RelativeLayout>
+
+
+            </com.google.android.material.card.MaterialCardView>
+
+
         </RelativeLayout>
 
 
-
-
     </androidx.core.widget.NestedScrollView>
-
 
 
 </LinearLayout>

@@ -63,9 +63,11 @@
         android:id="@+id/analyzing_textVIew"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="A n a l y s i n g  D a t a..."
+        android:text="Just checking a few things..."
         android:textColor="@color/blue_700"
+        android:gravity="center"
         android:textStyle="bold"
+        android:textSize="20sp"
         android:visibility="gone"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="100dp">

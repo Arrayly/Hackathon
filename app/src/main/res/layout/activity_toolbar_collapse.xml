@@ -51,7 +51,11 @@
         android:layout_height="match_parent"
         android:background="@color/overlay_light_40"
         android:clipToPadding="false"
-        android:scrollbars="none"
+        android:scrollbars="vertical"
+        android:fadeScrollbars="true"
+        android:fadingEdge="vertical"
+        android:requiresFadingEdge="vertical"
+        android:fadingEdgeLength="30dp"
         android:scrollingCache="true"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
@@ -126,7 +130,7 @@
                     app:value="Day"
                     app:definition="14/28"
                     app:lineBarWidth="3dp"
-                    app:lineProgressColor="@android:color/holo_blue_light"
+                    app:lineProgressColor="@android:color/holo_green_light"
                     app:underLineColor="@color/overlay_dark_40"
                     app:valueDefTextSize="15sp"
                     app:valuePercentage="50">
@@ -174,6 +178,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="@dimen/spacing_large"
+                        android:drawablePadding="8dp"
+                        android:drawableLeft="@drawable/ic_lock"
                         android:text="30 Day Mindfulness Course"
                         android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
 
@@ -190,32 +196,22 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal">
+                        android:orientation="horizontal"
+                        android:paddingBottom="10dp">
 
                         <com.google.android.material.chip.Chip
                             android:theme="@style/Theme.MaterialComponents.Light"
                             android:layout_width="wrap_content"
                             android:elevation="4dp"
+                            android:textAlignment="center"
                             android:layout_marginStart="10dp"
                             android:layout_marginBottom="5dp"
                             android:textColor="@color/overlay_light_90"
                             android:layout_height="wrap_content"
-                            app:chipBackgroundColor="@color/blue_400"
+                            app:chipBackgroundColor="@color/colorAccentLight"
                             app:rippleColor="@color/overlay_light_90"
-                            android:text="SHARE" />
+                            android:text="Tap to discover" />
 
-                        <com.google.android.material.chip.Chip
-                            android:theme="@style/Theme.MaterialComponents.Light"
-                            android:layout_width="wrap_content"
-                            android:elevation="4dp"
-                            android:layout_marginLeft="10dp"
-                            android:textColor="@color/overlay_light_90"
-                            android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:layout_marginBottom="5dp"
-                            app:chipBackgroundColor="@color/blue_400"
-                            app:rippleColor="@color/overlay_light_90"
-                            android:text="UNLOCK" />
 
                     </LinearLayout>
 
@@ -261,18 +257,41 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_margin="@dimen/spacing_large"
-                            android:text="30 Day Mindfulness Course"
+                            android:drawableLeft="@drawable/ic_lock"
+                            android:drawablePadding="8dp"
+                            android:text="10 Day Exercise Challenge"
                             android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginBottom="@dimen/spacing_large"
                             android:layout_marginLeft="@dimen/spacing_large"
                             android:layout_marginRight="@dimen/spacing_large"
-                            android:text="@string/mindfulnesscourse"
+                            android:layout_marginBottom="@dimen/spacing_large"
+                            android:text="@string/exercise_course"
                             android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
                             android:textColor="@color/grey_60" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:paddingBottom="10dp">
+
+                        <com.google.android.material.chip.Chip
+                            android:theme="@style/Theme.MaterialComponents.Light"
+                            android:layout_width="wrap_content"
+                            android:elevation="4dp"
+                            android:textAlignment="center"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginBottom="5dp"
+                            android:textColor="@color/overlay_light_90"
+                            android:layout_height="wrap_content"
+                            app:chipBackgroundColor="@color/colorAccentLight"
+                            app:rippleColor="@color/overlay_light_90"
+                            android:text="Tap to discover" />
+
                     </LinearLayout>
 
                 </LinearLayout>
@@ -300,7 +319,15 @@
 
                         <RelativeLayout
                             android:layout_width="match_parent"
-                            android:layout_height="200dp">
+                            android:layout_height="200dp"
+                            android:background="@drawable/smokecourse">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/smokecourse">
+                            </ImageView>
 
 
                             <TextView
@@ -308,7 +335,8 @@
                                 android:layout_height="wrap_content"
                                 android:layout_alignParentBottom="true"
                                 android:layout_margin="@dimen/spacing_large"
-                                android:text="Aliquet Et Ante"
+                                android:textSize="15sp"
+                                android:text="Quit Smoking"
                                 android:textAppearance="@style/TextAppearance.AppCompat.Headline"
                                 android:textColor="@android:color/white" />
 
@@ -320,6 +348,14 @@
                             android:gravity="center"
                             android:orientation="horizontal">
 
+
+                            <Button
+                                style="@style/Button.Accent.Borderless.WhiteText"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:textColor="@color/colorAccentDark"
+                                android:text="EXPLORE" />
 
                         </LinearLayout>
 
@@ -348,7 +384,18 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:scaleType="centerCrop"
-                                android:src="@drawable/meditation" />
+                                android:src="@drawable/braintrain2" />
+
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentBottom="true"
+                                android:textSize="15sp"
+                                android:layout_margin="@dimen/spacing_large"
+                                android:text="Brain Training"
+                                android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+                                android:textColor="@android:color/white" />
 
                         </RelativeLayout>
 
@@ -358,14 +405,19 @@
                             android:gravity="center"
                             android:orientation="horizontal">
 
-                            <TextView
+                            <Button
+                                style="@style/Button.Accent.Borderless.WhiteText"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Learn to meditate">
-                            </TextView>
+                                android:gravity="center"
+                                android:textColor="@color/colorAccentDark"
+                                android:text="EXPLORE" />
 
 
                         </LinearLayout>
+
+
+
 
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
@@ -403,7 +455,7 @@
                         android:layout_marginBottom="@dimen/spacing_large"
                         android:layout_marginLeft="@dimen/spacing_large"
                         android:layout_marginRight="@dimen/spacing_large"
-                        android:text="@string/medium_lorem_ipsum"
+                        android:text="@string/news_damentia"
                         android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
                         android:textColor="@color/grey_10" />
 
@@ -417,7 +469,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="center"
-                            android:text="LISTEN NOW" />
+                            android:text="EXPLORE" />
 
                     </LinearLayout>
 
@@ -453,7 +505,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_centerVertical="true"
                                 android:layout_margin="@dimen/spacing_large"
-                                android:text="Aliquet Et Ante Morbi"
+                                android:text="View progress"
                                 android:textAppearance="@style/TextAppearance.AppCompat.Headline"
                                 android:textColor="@android:color/white" />
 
@@ -478,7 +530,7 @@
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:text="March 19, 2017"
+                                android:text="February 7, 2020"
                                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
                                 android:textColor="@android:color/white" />
 
@@ -516,7 +568,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:text="Call"
+                                android:drawableLeft="@drawable/ic_local_phone_black_24dp"
+                                android:text="Connect now"
                                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
                                 android:textColor="@android:color/white" />
 
@@ -531,7 +584,8 @@
                                 android:layout_height="wrap_content"
                                 android:layout_centerVertical="true"
                                 android:layout_margin="@dimen/spacing_large"
-                                android:text="Discover"
+
+                                android:text="Damentia Helpline"
                                 android:textAppearance="@style/TextAppearance.AppCompat.Headline"
                                 android:textColor="@android:color/white" />
 

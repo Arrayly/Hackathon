@@ -16,7 +16,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:text="BMI  Checker"
+            android:text="General"
             android:textColor="@android:color/holo_blue_light"
             android:textSize="20sp"
             android:textStyle="bold"></TextView>
@@ -32,68 +32,95 @@
           
         </ImageView>
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/input_height"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="250dp"
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:cardCornerRadius="4dp"
+
+            android:layout_below="@id/imgview1"
+            android:layout_marginTop="15dp"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="100dp"
-            android:hint="Height"
-            android:textColorHint="@color/colorPrimary"
-            app:boxStrokeColor="@color/blue_500"
-            app:hintAnimationEnabled="true">
+            app:cardUseCompatPadding="true"
+            app:cardElevation="4dp">
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/input_height_etext"
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:elevation="4dp"
-                android:textSize="15sp" />
-        </com.google.android.material.textfield.TextInputLayout>
+                android:layout_height="match_parent"
+                android:paddingTop="20dp"
+                android:paddingBottom="20dp">
 
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/input_weight"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="250dp"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/input_height"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="20dp"
-            android:hint="Weight"
-            android:textColorHint="@color/colorPrimary"
-            app:boxStrokeColor="@color/blue_500"
-            app:hintAnimationEnabled="true">
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/input_height"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_below="@+id/input_weight"
+                    android:hint="Height (m)"
+                    android:layout_marginTop="10dp"
+                    android:layout_gravity="center"
+                    android:textColorHint="@color/overlay_dark_90"
+                    app:boxStrokeColor="@color/colorAccentDark"
+                    app:hintAnimationEnabled="true">
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/input_date_etext"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:elevation="4dp"
-                android:textSize="15sp" />
-        </com.google.android.material.textfield.TextInputLayout>
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/input_height_etext"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:elevation="4dp"
+                        android:textSize="15sp" />
+                </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/input_age"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="250dp"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/input_weight"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="20dp"
-            android:hint="Age"
-            android:textColorHint="@color/colorPrimary"
-            app:boxStrokeColor="@color/blue_500"
-            app:hintAnimationEnabled="true">
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/input_age_etext"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:elevation="4dp"
-                android:textSize="15sp" />
-        </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/input_weight"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="250dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_height="wrap_content"
+                    android:hint="Weight (kg)"
+                    android:textColorHint="@color/overlay_dark_90"
+                    app:boxStrokeColor="@color/colorAccentDark"
+                    app:hintAnimationEnabled="true">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/input_date_etext"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:elevation="4dp"
+                        android:textSize="15sp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/input_age"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/input_height"
+                    android:layout_gravity="center"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="20dp"
+                    android:hint="Age"
+                    android:textColorHint="@color/overlay_dark_90"
+                    app:boxStrokeColor="@color/colorAccentDark"
+                    app:hintAnimationEnabled="true">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/input_age_etext"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:elevation="4dp"
+                        android:textSize="15sp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+
+            </RelativeLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+
 
 
     </RelativeLayout>

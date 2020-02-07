@@ -1,11 +1,14 @@
 package project.hackathon;
 
+import android.app.ActivityOptions;
 import android.content.Intent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+
+import static maes.tech.intentanim.CustomIntent.customType;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -21,11 +24,23 @@ public class LoginActivity extends AppCompatActivity {
         mButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(final View v) {
-               startActivity(new Intent(LoginActivity.this,DashboardActivity.class));
+                startActivityWithTransition();
+
             }
         });
 
 
+    }
 
+    private void startActivityWithTransition() {
+        startActivity(new Intent(LoginActivity.this, DashboardActivity.class));
+        customType(LoginActivity.this, "fadein-to-fadeout");
+
+//*left-to-right
+//*right-to-left
+//*bottom-to-up
+//*up-to-bottom
+//*fadein-to-fadeout
+//*rotateout-to-rotatein
     }
 }

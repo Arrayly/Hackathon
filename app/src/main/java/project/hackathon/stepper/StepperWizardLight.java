@@ -23,12 +23,13 @@ import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
 import com.google.android.material.chip.Chip;
 import project.hackathon.R;
+
 public class StepperWizardLight extends AppCompatActivity {
 
 
     private ViewPager viewPager;
 
-    private static final int MAX_STEP = 4;
+    private static final int MAX_STEP = 6;
 
     private SectionsPagerAdapterTwo myViewPagerAdapter;
 
@@ -50,14 +51,11 @@ public class StepperWizardLight extends AppCompatActivity {
 
         mTextView = findViewById(R.id.analyzing_textVIew);
 
-
         getWindow().setStatusBarColor(getResources().getColor(R.color.HelthCheckColor));
-
 
         bottomProgressDots(0);
 
         myViewPagerAdapter = new SectionsPagerAdapterTwo(getSupportFragmentManager());
-
 
         if (viewPager != null) {
             viewPager.setAdapter(myViewPagerAdapter);
@@ -70,7 +68,7 @@ public class StepperWizardLight extends AppCompatActivity {
                 if (current < MAX_STEP) {
                     // move to next screen
                     viewPager.setCurrentItem(current);
-                    if (current == MAX_STEP-1){
+                    if (current == MAX_STEP - 1) {
                         mChip.setChipBackgroundColorResource(R.color.green_700);
                         mChip.setText("D O N E");
                     }
@@ -101,7 +99,7 @@ public class StepperWizardLight extends AppCompatActivity {
     }
 
     private void showFinishAnimation() {
-        if (mAnimationView !=null){
+        if (mAnimationView != null) {
 //            YoYo.with(Techniques.FadeIn).duration(300).playOn(mAnimationView);
             mAnimationView.setVisibility(View.VISIBLE);
             mTextView.setVisibility(View.VISIBLE);
@@ -116,10 +114,10 @@ public class StepperWizardLight extends AppCompatActivity {
             @Override
             public void run() {
                 Intent intent = getIntent();
-                setResult(RESULT_OK,intent);
+                setResult(RESULT_OK, intent);
                 finish();
             }
-        },4000);
+        }, 4000);
 
     }
 
@@ -132,7 +130,8 @@ public class StepperWizardLight extends AppCompatActivity {
         for (int i = 0; i < dots.length; i++) {
             dots[i] = new ImageView(this);
             int width_height = 15;
-            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(new ViewGroup.LayoutParams(width_height, width_height));
+            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
+                    new ViewGroup.LayoutParams(width_height, width_height));
             params.setMargins(10, 10, 10, 10);
             dots[i].setLayoutParams(params);
             dots[i].setImageResource(R.drawable.shape_circle);
@@ -154,7 +153,7 @@ public class StepperWizardLight extends AppCompatActivity {
 
         @Override
         public int getCount() { //Number of pages
-            return 4;
+            return 6;
         }
 
         @Override
@@ -168,6 +167,12 @@ public class StepperWizardLight extends AppCompatActivity {
                     return new StepperFragment2();
                 case 3:
                     return new StepperFragment3();
+
+                case 4:
+                    return new StepperFragment5();
+
+                case 5:
+                    return new StepperFragment6();
             }
             return null;
         }

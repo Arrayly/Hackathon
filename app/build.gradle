@@ -43,10 +43,22 @@ dependencies {
     implementation 'com.daimajia.easing:library:2.0@aar'
     implementation 'com.daimajia.androidanimations:library:2.3@aar'
 
-
     //Line graphs
     implementation 'com.github.PhilJay:MPAndroidChart:v3.0.3'
 
     //konfetti
     implementation 'nl.dionsegijn:konfetti:1.1.3'
+
+    //Collapsing Toolbar typface
+    implementation 'com.rhexgomez.typer:typer-roboto:2.0.0'
+
+
+    //intent animations
+    implementation 'com.github.hajiyevelnur92:intentanimation:1.0'
+
+
+
+
+
+
 }
