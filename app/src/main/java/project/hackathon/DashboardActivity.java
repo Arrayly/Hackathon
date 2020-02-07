@@ -27,6 +27,8 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 import androidx.viewpager.widget.ViewPager.OnPageChangeListener;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.rhexgomez.typer.roboto.TyperRoboto;
@@ -62,13 +64,18 @@ public class DashboardActivity extends AppCompatActivity {
 
         Typeface typeface = ResourcesCompat.getFont(this, R.font.baloo_paaji);
 
+//        getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION); // Make the bottom navigation bar translucent
+
         mCollapsingToolbarLayout.setCollapsedTitleTypeface(typeface);
         mCollapsingToolbarLayout.setExpandedTitleTypeface(typeface);
 //        mCollapsingToolbarLayout.setContentScrim(null);
         mCollapsingToolbarLayout.setStatusBarScrim(null);
 
         getWindow().setStatusBarColor(getResources().getColor(R.color.collapse_toolbar_contracted));
-        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+
+        ImageView image_scrolling_top = findViewById(R.id.image1234);
+        Glide.with(this).load(R.drawable.backgroundimgcollapse).apply(new RequestOptions().fitCenter()).into(image_scrolling_top);
+
 
         initToolbar();
         initComponent();

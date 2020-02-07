@@ -1,6 +1,8 @@
 package project.hackathon.fragments;
 
 
+import static maes.tech.intentanim.CustomIntent.customType;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View.OnClickListener;
@@ -12,6 +14,7 @@ import android.view.ViewGroup;
 
 import com.google.android.material.chip.Chip;
 import project.hackathon.DashboardActivity;
+import project.hackathon.LoginActivity;
 import project.hackathon.R;
 import project.hackathon.stepper.StepperWizardLight;
 
@@ -46,6 +49,7 @@ public class HealthCheckFragment extends Fragment {
             public void onClick(final View v) {
                 Intent intent = new Intent(getActivity(),StepperWizardLight.class);
                 getActivity().startActivityForResult(intent, DashboardActivity.HEALTH_REQUEST_CODE);
+                customType(getActivity(), "fadein-to-fadeout");
             }
         });
     }

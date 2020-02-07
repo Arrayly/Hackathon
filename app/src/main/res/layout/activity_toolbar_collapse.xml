@@ -445,7 +445,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="@dimen/spacing_large"
-                        android:text="Latest News on Damentia"
+                        android:text="Latest News on Dementia"
                         android:textAppearance="@style/TextAppearance.AppCompat.Headline"
                         android:textColor="@android:color/white" />
 
@@ -585,7 +585,7 @@
                                 android:layout_centerVertical="true"
                                 android:layout_margin="@dimen/spacing_large"
 
-                                android:text="Damentia Helpline"
+                                android:text="Dementia Helpline"
                                 android:textAppearance="@style/TextAppearance.AppCompat.Headline"
                                 android:textColor="@android:color/white" />
 
@@ -616,5 +616,19 @@
         app:layout_anchor="@id/app_bar_layout"
         app:layout_anchorGravity="bottom|right|end"
         app:srcCompat="@drawable/ic_share_black_24dp" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        app:layout_anchor="@id/collapsing_toolbar"
+        app:layout_anchorGravity="bottom">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/drop_shadow"/>
+    </RelativeLayout>
+
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

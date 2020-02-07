@@ -1,6 +1,8 @@
 package project.hackathon.fragments;
 
 
+import static maes.tech.intentanim.CustomIntent.customType;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View.OnClickListener;
@@ -49,6 +51,7 @@ public class ImproveFragment extends Fragment {
             @Override
             public void onClick(final View v) {
                 startActivity(new Intent(getActivity(), ImproveActivity.class));
+                customType(getActivity(), "fadein-to-fadeout");
             }
         });
     }

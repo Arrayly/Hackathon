@@ -1,5 +1,7 @@
 package project.hackathon.stepper;
 
+import static maes.tech.intentanim.CustomIntent.customType;
+
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
@@ -51,7 +53,7 @@ public class StepperWizardLight extends AppCompatActivity {
 
         mTextView = findViewById(R.id.analyzing_textVIew);
 
-        getWindow().setStatusBarColor(getResources().getColor(R.color.HelthCheckColor));
+        getWindow().setStatusBarColor(getResources().getColor(R.color.collapse_toolbar_contracted));
 
         bottomProgressDots(0);
 
@@ -116,6 +118,7 @@ public class StepperWizardLight extends AppCompatActivity {
                 Intent intent = getIntent();
                 setResult(RESULT_OK, intent);
                 finish();
+                customType(StepperWizardLight.this, "fadein-to-fadeout");
             }
         }, 4000);
 
