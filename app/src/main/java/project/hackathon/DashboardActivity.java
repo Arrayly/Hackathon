@@ -3,6 +3,7 @@ package project.hackathon;
 import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Handler;
@@ -60,22 +61,14 @@ public class DashboardActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
 
-        mCollapsingToolbarLayout = findViewById(R.id.collapsing_toolbar);
-
-        Typeface typeface = ResourcesCompat.getFont(this, R.font.baloo_paaji);
-
 //        getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION); // Make the bottom navigation bar translucent
 
-        mCollapsingToolbarLayout.setCollapsedTitleTypeface(typeface);
-        mCollapsingToolbarLayout.setExpandedTitleTypeface(typeface);
-//        mCollapsingToolbarLayout.setContentScrim(null);
-        mCollapsingToolbarLayout.setStatusBarScrim(null);
 
-        getWindow().setStatusBarColor(getResources().getColor(R.color.collapse_toolbar_contracted));
+        getWindow().setStatusBarColor(getResources().getColor(R.color.complete_white));
 
-        ImageView image_scrolling_top = findViewById(R.id.image1234);
-        Glide.with(this).load(R.drawable.backgroundimgcollapse).apply(new RequestOptions().fitCenter()).into(image_scrolling_top);
+        //@color/grey_20
 
+        getWindow().setNavigationBarColor(getResources().getColor(R.color.grey_20));
 
         initToolbar();
         initComponent();
@@ -84,40 +77,40 @@ public class DashboardActivity extends AppCompatActivity {
             public void run() {
                 showInfoDialog();
             }
-        },5000);
+        }, 5000);
 
     }
 
     private void showInfoDialog() {
-            final Dialog dialog = new Dialog(this);
-            dialog.requestWindowFeature(Window.FEATURE_NO_TITLE); // before
-            dialog.setContentView(R.layout.dialog_info);
-            dialog.setCancelable(true);
+        final Dialog dialog = new Dialog(this);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE); // before
+        dialog.setContentView(R.layout.dialog_info);
+        dialog.setCancelable(true);
 
-            WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
-            lp.copyFrom(dialog.getWindow().getAttributes());
-            lp.width = WindowManager.LayoutParams.WRAP_CONTENT;
-            lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
+        WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+        lp.copyFrom(dialog.getWindow().getAttributes());
+        lp.width = WindowManager.LayoutParams.WRAP_CONTENT;
+        lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
 
+        dialog.findViewById(R.id.bt_close).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
 
-            dialog.findViewById(R.id.bt_close).setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    dialog.dismiss();
-                }
-            });
-
-            dialog.show();
-            dialog.getWindow().setAttributes(lp);
+        dialog.show();
+        dialog.getWindow().setAttributes(lp);
 
     }
 
     private void initToolbar() {
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar =  findViewById(R.id.toolbar_dash);
+        toolbar.setNavigationIcon(R.drawable.ic_menu);
+        toolbar.getNavigationIcon().setColorFilter(getResources().getColor(R.color.grey_60), PorterDuff.Mode.SRC_ATOP);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle(null);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
-
 
 
     private void initComponent() {
@@ -273,7 +266,7 @@ public class DashboardActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == R.id.action_settings) {
-            startActivity(new Intent(DashboardActivity.this,SettingsActivity.class));
+            startActivity(new Intent(DashboardActivity.this, SettingsActivity.class));
         }
         return super.onOptionsItemSelected(item);
     }

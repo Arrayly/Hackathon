@@ -1,84 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
     android:id="@+id/rootlayout"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/overlay_light_90"
     android:fitsSystemWindows="true">
 
 
     <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/app_bar_layout"
         android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:fitsSystemWindows="true"
-        android:theme="@style/AppTheme.AppBarOverlay">
+        android:layout_height="wrap_content"
+        android:background="@android:color/white">
 
-        <com.google.android.material.appbar.CollapsingToolbarLayout
-            android:id="@+id/collapsing_toolbar"
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar_dash"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:title="Hackathon"
-            android:fitsSystemWindows="true"
-            app:contentScrim="@color/collapse_toolbar_contracted"
-            app:collapsedTitleTextAppearance="@style/TextAppearance.MyApp.Title.Collapsed"
-            app:expandedTitleTextAppearance="@style/TextAppearance.MyApp.Title.Expanded"
-            app:layout_scrollFlags="scroll|exitUntilCollapsed">
-
-            <ImageView
-                android:id="@+id/image1234"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:fitsSystemWindows="true"
-                android:scaleType="centerCrop"
-                app:layout_collapseMode="parallax" />
-
-            <androidx.appcompat.widget.Toolbar
-                android:id="@+id/toolbar"
-                android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                app:layout_collapseMode="pin"
-                app:popupTheme="@style/AppTheme.PopupOverlay" />
-
-        </com.google.android.material.appbar.CollapsingToolbarLayout>
+            android:layout_height="?attr/actionBarSize"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            app:contentInsetStartWithNavigation="0dp"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+            app:theme="@style/Toolbar.Light"
+            app:title="Hackathon" />
 
     </com.google.android.material.appbar.AppBarLayout>
 
-        <nl.dionsegijn.konfetti.KonfettiView
-            android:id="@+id/viewKonfetti"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
 
-        <androidx.core.widget.NestedScrollView
-            android:id="@+id/nested_scroll_view"
-            app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:clipToPadding="false"
-            android:fillViewport="true"
-            android:scrollbars="none"
-            android:scrollingCache="true">
+    <nl.dionsegijn.konfetti.KonfettiView
+        android:id="@+id/viewKonfetti"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
-            <LinearLayout
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/nested_scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:fillViewport="true"
+        android:scrollbars="none"
+        android:scrollingCache="true"
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <androidx.viewpager.widget.ViewPager
+                android:id="@+id/main_viewpager"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:layout_height="wrap_content">
+
+            </androidx.viewpager.widget.ViewPager>
 
 
-                <androidx.viewpager.widget.ViewPager
-                    android:id="@+id/main_viewpager"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+        </LinearLayout>
 
-                </androidx.viewpager.widget.ViewPager>
-
-
-            </LinearLayout>
-
-        </androidx.core.widget.NestedScrollView>
-
-
+    </androidx.core.widget.NestedScrollView>
 
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
@@ -87,27 +66,23 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_gravity="bottom"
-        android:background="@color/collapse_toolbar_contracted"
+        android:background="@color/complete_white"
         app:itemIconTint="@color/color_state_white_2"
         app:itemTextColor="@color/color_state_white_2"
         app:menu="@menu/menu_bottom_navigation_shifting" />
 
 
-
-
-
-
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="10dp"
-        app:layout_anchor="@id/collapsing_toolbar"
+        app:layout_anchor="@id/toolbar_dash"
         app:layout_anchorGravity="bottom">
 
         <View
             android:layout_width="match_parent"
             android:layout_height="5dp"
             android:layout_alignParentBottom="true"
-            android:background="@drawable/drop_shadow"/>
+            android:background="@drawable/drop_shadow" />
     </RelativeLayout>
 
 
@@ -121,10 +96,8 @@
             android:layout_width="match_parent"
             android:layout_height="5dp"
             android:layout_alignParentBottom="false"
-            android:background="@drawable/bottom_nav_dropshadow"/>
+            android:background="@drawable/bottom_nav_dropshadow" />
     </RelativeLayout>
-
-
 
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
