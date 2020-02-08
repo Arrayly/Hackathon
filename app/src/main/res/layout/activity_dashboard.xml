@@ -21,7 +21,7 @@
             app:contentInsetStartWithNavigation="0dp"
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
             app:theme="@style/Toolbar.Light"
-            app:title="Hackathon" />
+            app:title="Hello, Sarah" />
 
     </com.google.android.material.appbar.AppBarLayout>
 

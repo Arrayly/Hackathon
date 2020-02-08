@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".template_activity">
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="145dp"
+        android:layout_marginTop="50dp"
+        app:cardElevation="4dp"
+        app:cardCornerRadius="4dp"
+        app:cardUseCompatPadding="true">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.app.progresviews.ProgressWheel
+                android:id="@+id/wheelprogress"
+                android:layout_width="100dp"
+                android:layout_centerVertical="true"
+                android:layout_height="100dp"
+                app:barWidth="10dp"
+                app:countText="49"
+                app:countTextColor="@android:color/black"
+                app:countTextSize="20sp"
+                app:defTextColor="@android:color/black"
+                app:defTextSize="10sp"
+                app:definitionText="Score"
+                app:marginBtwText="15dp"
+                app:percentage="0"
+                app:progressColor="@color/green_A400">
+
+            </com.app.progresviews.ProgressWheel>
+
+            <View
+                android:id="@+id/divider_card"
+                android:layout_width="1dp"
+                android:layout_marginStart="110dp"
+                android:layout_height="match_parent"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:background="@color/grey_10" />
+
+
+            <com.app.progresviews.ProgressLine
+                android:id="@+id/progress_line_steps"
+                android:layout_height="30dp"
+                android:layout_width="130dp"
+                android:layout_marginTop="5dp"
+                android:layout_alignLeft="@+id/footsteps_ic"
+                android:layout_marginLeft="15dp"
+                app:underLineSize="2dp"
+                app:lineDefTextSize="10sp"
+                app:definition="Daily steps"
+                app:lineBarWidth="5dp"
+                app:lineProgressColor="@android:color/holo_blue_light"
+                app:underLineColor="@color/overlay_dark_40"
+                app:value="6,986"
+                app:valueDefTextSize="15sp"
+                app:valuePercentage="30">
+            </com.app.progresviews.ProgressLine>
+
+            <com.app.progresviews.ProgressLine
+                android:id="@+id/progress_line_calories"
+                android:layout_height="30dp"
+                android:layout_width="130dp"
+                android:layout_alignLeft="@+id/calories_ic"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="15dp"
+                android:layout_below="@+id/footsteps_ic"
+                app:underLineSize="2dp"
+                app:lineDefTextSize="10sp"
+                app:definition="Calories burned"
+                app:lineBarWidth="5dp"
+                app:lineProgressColor="@android:color/holo_red_light"
+                app:underLineColor="@color/overlay_dark_40"
+                app:value="742"
+                app:valueDefTextSize="15sp"
+                app:valuePercentage="90">
+            </com.app.progresviews.ProgressLine>
+
+            <ImageView
+                android:id="@+id/footsteps_ic"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginTop="5dp"
+                android:layout_alignLeft="@+id/divider_card"
+                android:layout_marginLeft="10dp"
+                android:src="@drawable/steps_dash">
+
+            </ImageView>
+
+
+            <ImageView
+                android:id="@+id/calories_ic"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_alignLeft="@+id/divider_card"
+                android:layout_marginLeft="10dp"
+                android:layout_below="@+id/footsteps_ic"
+                android:layout_marginTop="15dp"
+                android:src="@drawable/fire_dash">
+
+            </ImageView>
+
+            <ImageView
+                android:id="@+id/active_ic"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_alignLeft="@+id/divider_card"
+                android:layout_marginLeft="10dp"
+                android:layout_below="@+id/calories_ic"
+                android:layout_marginTop="15dp"
+                android:src="@drawable/stopwatch_dash">
+
+            </ImageView>
+
+
+            <com.app.progresviews.ProgressLine
+                android:id="@+id/progress_line_acttiveMin"
+                android:layout_height="30dp"
+                android:layout_width="130dp"
+                android:layout_marginTop="15dp"
+                android:layout_alignLeft="@+id/active_ic"
+                android:layout_marginLeft="15dp"
+                android:layout_below="@+id/calories_ic"
+                app:underLineSize="2dp"
+                app:lineDefTextSize="10sp"
+                app:definition="Active minutes"
+                app:lineBarWidth="5dp"
+                app:lineProgressColor="@android:color/holo_purple"
+                app:underLineColor="@color/overlay_dark_40"
+                app:value="33"
+                app:valueDefTextSize="15sp"
+                app:valuePercentage="80">
+            </com.app.progresviews.ProgressLine>
+
+
+        </RelativeLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+</RelativeLayout>
+
+

@@ -10,243 +10,478 @@
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:scrollbars="vertical"
+        android:layout_height="match_parent"
+        android:clipToPadding="true"
         android:fadeScrollbars="true"
         android:fadingEdge="vertical"
-        android:requiresFadingEdge="vertical"
         android:fadingEdgeLength="30dp"
-        android:layout_height="match_parent"
-        android:clipToPadding="true">
+        android:requiresFadingEdge="vertical"
+        android:scrollbars="vertical">
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-
-            <TextView
-                android:id="@+id/welcome_textview"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_alignParentStart="true"
-                android:layout_marginStart="15dp"
-                android:layout_marginTop="10dp"
-                android:fontFamily="@font/cutive_mono"
-
-                android:text="Welcome back Sarah!"
-                android:textSize="20sp"
-                android:textStyle="italic"></TextView>
-
-
-
-
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/progressWheel_card"
-                android:layout_below="@+id/welcome_textview"
-                android:layout_width="150dp"
-                android:layout_marginEnd="15dp"
-                android:layout_marginTop="10dp"
-                android:layout_alignParentEnd="true"
-                android:layout_height="160dp"
-                app:cardCornerRadius="6dp"
-                app:cardElevation="2dp"
-                app:cardUseCompatPadding="true">
-
-                <com.app.progresviews.ProgressWheel
-                    android:id="@+id/wheelprogress"
-                    android:layout_width="100dp"
-                    android:layout_gravity="center"
-                    android:layout_height="100dp"
-                    app:barWidth="10dp"
-                    app:countText="49"
-                    app:countTextColor="@android:color/black"
-                    app:countTextSize="20sp"
-                    app:defTextColor="@android:color/black"
-                    app:defTextSize="10sp"
-                    app:definitionText="Score"
-                    app:marginBtwText="15dp"
-                    app:percentage="0"
-                    app:progressColor="@color/green_A400">
-
-                </com.app.progresviews.ProgressWheel>
-
-
-
-                <ImageView
-                    android:layout_width="45dp"
-                    android:layout_height="45dp"
-                    android:layout_gravity="top|start"
-                    android:src="@drawable/star">
-                </ImageView>
-
-
-            </com.google.android.material.card.MaterialCardView>
-
-
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/progress_line_steps_card"
-                android:layout_width="150dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginStart="15dp"
-                android:layout_below="@+id/welcome_textview"
-                android:layout_alignParentStart="true"
-                android:layout_height="55dp"
-                app:cardCornerRadius="6dp"
-                app:cardElevation="4dp"
-                app:cardUseCompatPadding="true">
-
-
-                <ImageView
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:layout_marginStart="3dp"
-                    android:layout_gravity="center|start"
-                    android:src="@drawable/footsteps" />
-
-                <com.app.progresviews.ProgressLine
-                    android:id="@+id/progress_line_steps"
-                    android:layout_width="130dp"
-                    android:layout_marginStart="15dp"
-
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center"
-                    app:underLineSize="1dp"
-                    app:lineDefTextSize="10sp"
-                    app:definition="Daily steps"
-                    app:lineBarWidth="3dp"
-                    app:lineProgressColor="@android:color/holo_blue_light"
-                    app:underLineColor="@color/overlay_dark_40"
-                    app:value="6,986"
-                    app:valueDefTextSize="15sp"
-                    app:valuePercentage="0">
-                </com.app.progresviews.ProgressLine>
-
-            </com.google.android.material.card.MaterialCardView>
-
-
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/progress_line_calories_card"
-                android:layout_width="150dp"
-                android:layout_marginStart="15dp"
-                android:layout_alignParentStart="true"
-                android:layout_height="50dp"
-                android:layout_below="@id/progress_line_steps_card"
-                android:layout_marginTop="5dp"
-                app:cardCornerRadius="6dp"
-                app:cardElevation="2dp"
-                app:cardUseCompatPadding="true">
-
-
-                <ImageView
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:layout_marginStart="3dp"
-                    android:layout_gravity="center|start"
-                    android:src="@drawable/calories" />
-
-                <com.app.progresviews.ProgressLine
-                    android:id="@+id/progress_line_calories"
-                    android:layout_width="130dp"
-                    android:layout_marginStart="15dp"
-
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center"
-                    app:underLineSize="1dp"
-                    app:lineDefTextSize="10sp"
-                    app:definition="Calories burned"
-                    app:lineBarWidth="3dp"
-                    app:lineProgressColor="@android:color/holo_red_light"
-                    app:underLineColor="@color/overlay_dark_40"
-                    app:value="742"
-                    app:valueDefTextSize="15sp"
-                    app:valuePercentage="0">
-                </com.app.progresviews.ProgressLine>
-
-            </com.google.android.material.card.MaterialCardView>
-
-
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/progress_line_acttiveMin_card"
-                android:layout_width="150dp"
-                android:layout_marginStart="15dp"
-                android:layout_alignParentStart="true"
-                android:layout_height="50dp"
-                android:layout_below="@id/progress_line_calories_card"
-                android:layout_marginTop="5dp"
-                app:cardCornerRadius="6dp"
-                app:cardElevation="2dp"
-                app:cardUseCompatPadding="true">
-
-
-                <ImageView
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:layout_marginStart="3dp"
-                    android:layout_gravity="center|start"
-                    android:src="@drawable/watch" />
-
-                <com.app.progresviews.ProgressLine
-                    android:id="@+id/progress_line_acttiveMin"
-                    android:layout_width="130dp"
-                    android:layout_marginStart="15dp"
-
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center"
-                    app:underLineSize="1dp"
-                    app:lineDefTextSize="10sp"
-                    app:definition="Active minutes"
-                    app:lineBarWidth="3dp"
-                    app:lineProgressColor="@android:color/holo_purple"
-                    app:underLineColor="@color/overlay_dark_40"
-                    app:value="33"
-                    app:valueDefTextSize="15sp"
-                    app:valuePercentage="0">
-                </com.app.progresviews.ProgressLine>
-
-            </com.google.android.material.card.MaterialCardView>
-
-
-
-
-
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/chart_card"
+            <View
                 android:layout_width="match_parent"
-                app:cardBackgroundColor="@color/blue_600"
-                android:layout_height="250dp"
-                android:layout_marginTop="50dp"
-                android:layout_below="@+id/progress_line_acttiveMin_card"
-                app:cardCornerRadius="6dp"
-                app:cardElevation="6dp"
-                app:cardUseCompatPadding="true">
+                android:layout_height="130dp"
+                android:background="@color/grey_20" />
 
-                <com.github.mikephil.charting.charts.LineChart
-                    android:id="@+id/chart"
-                    android:layout_gravity="fill"
-                    android:clipToPadding="true"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginTop="30dp" />
 
-            </com.google.android.material.card.MaterialCardView>
-            
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:layout_width="wrap_content"
-                android:id="@+id/summary_fab"
+            <LinearLayout
+                android:id="@+id/linear_top"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:tint="@android:color/white"
-                app:fabSize="normal"
-                android:focusable="true"
-                android:clickable="true"
-                android:layout_alignTop="@id/chart_card"
-                android:layout_marginStart="15dp"
-                android:layout_marginTop="-22dp"
-                app:elevation="6dp"
-                app:srcCompat="@drawable/heart"
-                app:rippleColor="@android:color/white">
+                android:orientation="vertical">
 
-            </com.google.android.material.floatingactionbutton.FloatingActionButton>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="15dp"
+                    android:fontFamily="@font/alfa_slab_one"
+                    android:text="Dashboard"
+                    android:textColor="@color/complete_white"
+                    android:textSize="20sp"
+                    android:textStyle="normal">
 
+                </TextView>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="match_parent"
+                        android:layout_height="145dp"
+                        android:layout_marginTop="20dp"
+                        app:cardCornerRadius="4dp"
+                        app:cardElevation="4dp"
+                        app:cardUseCompatPadding="true">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <com.app.progresviews.ProgressWheel
+                                android:id="@+id/wheelprogress"
+                                android:layout_width="100dp"
+                                android:layout_height="100dp"
+                                android:layout_centerVertical="true"
+                                app:barWidth="10dp"
+                                app:countText="49"
+                                app:countTextColor="@android:color/black"
+                                app:countTextSize="20sp"
+                                app:defTextColor="@android:color/black"
+                                app:defTextSize="10sp"
+                                app:definitionText="Score"
+                                app:marginBtwText="15dp"
+                                app:percentage="0"
+                                app:progressColor="@color/green_A400">
+
+                            </com.app.progresviews.ProgressWheel>
+
+                            <View
+                                android:id="@+id/divider_card"
+                                android:layout_width="1dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginStart="110dp"
+                                android:layout_marginTop="5dp"
+                                android:layout_marginBottom="5dp"
+                                android:background="@color/grey_10" />
+
+
+                            <com.app.progresviews.ProgressLine
+                                android:id="@+id/progress_line_steps"
+                                android:layout_width="130dp"
+                                android:layout_height="30dp"
+                                android:layout_alignLeft="@+id/footsteps_ic"
+                                android:layout_marginLeft="15dp"
+                                android:layout_marginTop="5dp"
+                                app:definition="Daily steps"
+                                app:lineBarWidth="5dp"
+                                app:lineDefTextSize="10sp"
+                                app:lineProgressColor="@android:color/holo_blue_light"
+                                app:underLineColor="@color/overlay_dark_40"
+                                app:underLineSize="2dp"
+                                app:value="6,986"
+                                app:valueDefTextSize="15sp"
+                                app:valuePercentage="0"></com.app.progresviews.ProgressLine>
+
+                            <com.app.progresviews.ProgressLine
+                                android:id="@+id/progress_line_calories"
+                                android:layout_width="130dp"
+                                android:layout_height="30dp"
+                                android:layout_below="@+id/footsteps_ic"
+                                android:layout_alignLeft="@+id/calories_ic"
+                                android:layout_marginLeft="15dp"
+                                android:layout_marginTop="15dp"
+                                app:definition="Calories burned"
+                                app:lineBarWidth="5dp"
+                                app:lineDefTextSize="10sp"
+                                app:lineProgressColor="@android:color/holo_red_light"
+                                app:underLineColor="@color/overlay_dark_40"
+                                app:underLineSize="2dp"
+                                app:value="742"
+                                app:valueDefTextSize="15sp"
+                                app:valuePercentage="0"></com.app.progresviews.ProgressLine>
+
+                            <ImageView
+                                android:id="@+id/footsteps_ic"
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:layout_alignLeft="@+id/divider_card"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginTop="5dp"
+                                android:src="@drawable/steps_dash">
+
+                            </ImageView>
+
+
+                            <ImageView
+                                android:id="@+id/calories_ic"
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:layout_below="@+id/footsteps_ic"
+                                android:layout_alignLeft="@+id/divider_card"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginTop="15dp"
+                                android:src="@drawable/fire_dash">
+
+                            </ImageView>
+
+                            <ImageView
+                                android:id="@+id/active_ic"
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:layout_below="@+id/calories_ic"
+                                android:layout_alignLeft="@+id/divider_card"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginTop="15dp"
+                                android:src="@drawable/stopwatch_dash">
+
+                            </ImageView>
+
+
+                            <com.app.progresviews.ProgressLine
+                                android:id="@+id/progress_line_acttiveMin"
+                                android:layout_width="130dp"
+                                android:layout_height="30dp"
+                                android:layout_below="@+id/calories_ic"
+                                android:layout_alignLeft="@+id/active_ic"
+                                android:layout_marginLeft="15dp"
+                                android:layout_marginTop="15dp"
+                                app:definition="Active minutes"
+                                app:lineBarWidth="5dp"
+                                app:lineDefTextSize="10sp"
+                                app:lineProgressColor="@android:color/holo_purple"
+                                app:underLineColor="@color/overlay_dark_40"
+                                app:underLineSize="2dp"
+                                app:value="33"
+                                app:valueDefTextSize="15sp"
+                                app:valuePercentage="0"></com.app.progresviews.ProgressLine>
+
+                        </RelativeLayout>
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/chart_card"
+                        android:layout_width="match_parent"
+                        android:layout_height="220dp"
+                        android:layout_marginTop="35dp"
+                        app:cardBackgroundColor="@color/blue_600"
+                        app:cardElevation="2dp"
+                        app:cardUseCompatPadding="true">
+
+                        <com.github.mikephil.charting.charts.LineChart
+                            android:id="@+id/chart"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_centerHorizontal="true"
+                            android:layout_gravity="fill"
+                            android:layout_marginTop="30dp"
+                            android:clipToPadding="true" />
+
+                    </com.google.android.material.card.MaterialCardView>
+
+
+
+                    <com.google.android.material.floatingactionbutton.FloatingActionButton
+                        android:id="@+id/summary_fab"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignTop="@id/chart_card"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="-22dp"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:tint="@android:color/white"
+                        app:elevation="6dp"
+                        app:fabSize="normal"
+                        app:rippleColor="@android:color/white"
+                        app:srcCompat="@drawable/heart">
+
+                    </com.google.android.material.floatingactionbutton.FloatingActionButton>
+
+                    <pl.bclogic.pulsator4droid.library.PulsatorLayout
+                        android:id="@+id/pulsator"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_alignTop="@id/chart_card"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="-35dp"
+                        app:pulse_count="4"
+                        app:pulse_duration="7000"
+                        app:pulse_repeat="1000"
+                        app:pulse_color="@color/colorAccentLight"
+                        app:pulse_startFromScratch="false"
+                        app:pulse_interpolator="Linear">
+                    </pl.bclogic.pulsator4droid.library.PulsatorLayout>
+
+                </RelativeLayout>
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:layout_marginTop="5dp"
+                android:layout_below="@id/linear_top"
+                android:orientation="vertical">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginLeft="@dimen/spacing_large"
+                    android:layout_marginRight="@dimen/spacing_large"
+                    android:background="@color/grey_10" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginTop="5dp"
+                        android:fontFamily="@font/allerta"
+                        android:text="Top Picks for You!"
+                        android:textSize="20sp"
+                        android:textStyle="bold"></TextView>
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginEnd="15dp"
+                        android:clickable="true"
+                        android:drawableRight="@drawable/ic_view_all"
+                        android:focusable="true"
+                        android:gravity="center"
+                        android:text="View all">
+
+                    </TextView>
+
+                </RelativeLayout>
+
+
+                <HorizontalScrollView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_middle"
+                    android:fadingEdge="horizontal"
+                    android:fadingEdgeLength="30dp"
+                    android:requiresFadingEdge="horizontal"
+                    android:scrollbars="none">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <View
+                            android:layout_width="@dimen/spacing_large"
+                            android:layout_height="0dp" />
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="?attr/selectableItemBackground"
+                            android:clickable="true"
+                            android:orientation="vertical">
+
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="180dp"
+                                android:layout_height="120dp"
+                                android:layout_margin="1dp"
+                                app:cardCornerRadius="6dp"
+                                app:cardElevation="4dp"
+                                app:cardPreventCornerOverlap="false"
+                                app:cardUseCompatPadding="false">
+
+                                <ImageView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:scaleType="centerCrop"
+                                    android:src="@drawable/brainhq_resized" />
+
+                            </androidx.cardview.widget.CardView>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="@dimen/spacing_xsmall"
+                                android:layout_marginTop="@dimen/spacing_medium"
+                                android:layout_marginRight="@dimen/spacing_xsmall"
+                                android:text="Brain Training"
+                                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                                android:textColor="@color/grey_80"
+                                app:fontFamily="sans-serif-medium" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="@dimen/spacing_xsmall"
+                                android:layout_marginTop="@dimen/spacing_small"
+                                android:layout_marginRight="@dimen/spacing_xsmall"
+                                android:text="Explore brain games that work."
+                                android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                                android:textColor="@color/grey_40"
+                                android:textSize="10sp" />
+
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="@dimen/spacing_middle"
+                            android:layout_height="0dp" />
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="?attr/selectableItemBackground"
+                            android:clickable="true"
+                            android:orientation="vertical">
+
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="180dp"
+                                android:layout_height="120dp"
+                                android:layout_margin="1dp"
+                                app:cardCornerRadius="6dp"
+                                app:cardElevation="4dp"
+                                app:cardPreventCornerOverlap="false"
+                                app:cardUseCompatPadding="false">
+
+                                <ImageView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:scaleType="centerCrop"
+                                    android:src="@drawable/research" />
+
+                            </androidx.cardview.widget.CardView>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="@dimen/spacing_xsmall"
+                                android:layout_marginTop="@dimen/spacing_medium"
+                                android:layout_marginRight="@dimen/spacing_xsmall"
+                                android:text="Latest Research"
+                                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                                android:textColor="@color/grey_80"
+                                app:fontFamily="sans-serif-medium" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="@dimen/spacing_xsmall"
+                                android:layout_marginTop="@dimen/spacing_small"
+                                android:layout_marginRight="@dimen/spacing_xsmall"
+                                android:text="Access to all latest studies on Dementia"
+                                android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                                android:textColor="@color/grey_40"
+                                android:textSize="10sp" />
+
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="@dimen/spacing_middle"
+                            android:layout_height="0dp" />
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="?attr/selectableItemBackground"
+                            android:clickable="true"
+                            android:orientation="vertical">
+
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="180dp"
+                                android:layout_height="120dp"
+                                android:layout_margin="1dp"
+                                app:cardCornerRadius="6dp"
+                                app:cardElevation="4dp"
+                                app:cardPreventCornerOverlap="false"
+                                app:cardUseCompatPadding="false">
+
+                                <ImageView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:scaleType="centerCrop"
+                                    android:src="@drawable/demen_help_low_quality" />
+
+                            </androidx.cardview.widget.CardView>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="@dimen/spacing_xsmall"
+                                android:layout_marginTop="@dimen/spacing_medium"
+                                android:layout_marginRight="@dimen/spacing_xsmall"
+                                android:text="Dementia Helpline"
+                                android:textAlignment="center"
+                                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                                android:textColor="@color/grey_80"
+                                app:fontFamily="sans-serif-medium" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="@dimen/spacing_xsmall"
+                                android:layout_marginTop="@dimen/spacing_small"
+                                android:layout_marginRight="@dimen/spacing_xsmall"
+                                android:text="Connect with someone now."
+                                android:textAlignment="center"
+                                android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                                android:textColor="@color/grey_40"
+                                android:textSize="10sp" />
+
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="@dimen/spacing_large"
+                            android:layout_height="0dp" />
+
+                    </LinearLayout>
+
+                </HorizontalScrollView>
+
+            </LinearLayout>
 
         </RelativeLayout>
 

@@ -1,6 +1,8 @@
 package project.hackathon.fragments;
 
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
@@ -13,10 +15,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.viewpager.widget.ViewPager;
 import com.app.progresviews.ProgressLine;
 import com.app.progresviews.ProgressWheel;
 import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
+import com.daimajia.androidanimations.library.attention.PulseAnimator;
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.charts.Chart;
 import com.github.mikephil.charting.charts.LineChart;
@@ -34,6 +38,7 @@ import com.github.mikephil.charting.utils.ColorTemplate;
 import com.github.mikephil.charting.data.Entry;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.util.ArrayList;
+import pl.bclogic.pulsator4droid.library.PulsatorLayout;
 import project.hackathon.DashboardActivity;
 import project.hackathon.R;
 
@@ -46,6 +51,10 @@ public class SummaryFragment extends Fragment {
     ProgressLine lineSteps,LineCalories,lineActive;
     private LineChart chart;
     private FloatingActionButton fab;
+
+    private ViewPager mViewPager;
+    private PulsatorLayout mPulsatorLayout;
+
 
 
 
@@ -65,6 +74,8 @@ public class SummaryFragment extends Fragment {
         lineSteps = view.findViewById(R.id.progress_line_steps);
         LineCalories = view.findViewById(R.id.progress_line_calories);
         lineActive = view.findViewById(R.id.progress_line_acttiveMin);
+
+        mPulsatorLayout = view.findViewById(R.id.pulsator);
 
 
 
@@ -108,7 +119,13 @@ public class SummaryFragment extends Fragment {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                YoYo.with(Techniques.Pulse).pivot(100,220).duration(1000).playOn(fab);
+                YoYo.with(Techniques.Pulse).pivot(100,220).duration(1000).withListener(new AnimatorListenerAdapter() {
+                    @Override
+                    public void onAnimationEnd(final Animator animation) {
+                        super.onAnimationEnd(animation);
+                        mPulsatorLayout.start();
+                    }
+                }).playOn(fab);
             }
         },100);
 
@@ -159,6 +176,8 @@ public class SummaryFragment extends Fragment {
 
             }
         });
+
+
 
     }
 

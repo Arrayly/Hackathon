@@ -47,8 +47,6 @@
                 app:civ_shadow_radius="0" />
 
 
-
-
                     <TextView
                         android:id="@+id/sarahtextview"
                         android:layout_width="wrap_content"
@@ -159,6 +157,52 @@
             android:layout_marginBottom="@dimen/spacing_large"
             android:layout_marginTop="@dimen/spacing_large"
             android:background="@color/grey_5" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:gravity="center_vertical"
+            android:minHeight="70dp"
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/spacing_large"
+            android:paddingRight="@dimen/spacing_large"
+            android:focusable="true">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="sans-serif-light"
+                android:text="32 years old, 185cm, 62.5kg"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="@color/grey_80" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/editbtn"
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_height="wrap_content"
+                app:chipBackgroundColor="@color/blue_400"
+                android:elevation="4dp"
+                android:text="Edit"
+                android:textColor="@color/overlay_light_90"
+                android:textAlignment="center"
+                android:theme="@style/Theme.MaterialComponents.Light">
+            </com.google.android.material.chip.Chip>
+
+
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="@dimen/spacing_large"
+            android:layout_marginRight="@dimen/spacing_large"
+            android:background="@color/grey_10" />
 
 
         <LinearLayout

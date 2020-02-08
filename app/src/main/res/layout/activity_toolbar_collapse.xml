@@ -384,7 +384,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:scaleType="centerCrop"
-                                android:src="@drawable/braintrain2" />
+                                android:src="@drawable/brianhq" />
 
 
                             <TextView
@@ -393,7 +393,7 @@
                                 android:layout_alignParentBottom="true"
                                 android:textSize="15sp"
                                 android:layout_margin="@dimen/spacing_large"
-                                android:text="Brain Training"
+                                android:text="Brain Training Challenges"
                                 android:textAppearance="@style/TextAppearance.AppCompat.Headline"
                                 android:textColor="@android:color/white" />
 
