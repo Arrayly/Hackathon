@@ -1,6 +1,6 @@
 # Hackathon
 
-This is a mock-up of a native android application to help delay or prevent Damentia. It only has basic functionality but incorporates stunning UI and UX. The overal concept or idea is being addrssed.
+This is a mock-up of a native android application to help delay or prevent Damentia. It only has basic functionality but incorporates stunning UI and UX. The overal concept or idea is being addressed.
 
 This app was built and presented at the UCL Dementia Hack competition:
 https://www.ucl.ac.uk/iccs/events/2020/feb/ucl-dementia-hack
